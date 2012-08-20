@@ -87,7 +87,7 @@ public class TServerSocket extends TServerTransport {
       // Prevent 2MSL delay problem on server restarts
       serverSocket_.setReuseAddress(true);
       // Bind to listening port
-      serverSocket_.bind(bindAddr);
+      serverSocket_.bind(bindAddr,2000);
     } catch (IOException ioe) {
       serverSocket_ = null;
       throw new TTransportException("Could not create ServerSocket on address " + bindAddr.toString() + ".");
